@@ -12,13 +12,12 @@ class GradientText extends StatelessWidget {
         style: TextStyle(
             fontSize: size,
             foreground: Paint()
-              ..shader = LinearGradient(
+              ..shader = const LinearGradient(
                 colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 stops: [0.0661, 0.761],
                 transform: GradientRotation(88.82),
-              ).createShader(const Rect.fromLTWH(0.0,0.0,200.0,70.0))));
-    GradientText("Game",31.6)
+              ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0))));
   }
 }
