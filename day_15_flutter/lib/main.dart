@@ -1,8 +1,20 @@
 import 'package:day_15_flutter/flex_screen.dart';
+import 'package:day_15_flutter/stop_watch.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: FlexScreen()
+    home: Scaffold(
+      body: StopWatchApp(),
+    )
   ));
+}
+class StopWatchApp extends StatelessWidget {
+  const StopWatchApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StopWatch();
+
+  }
 }
