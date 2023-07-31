@@ -25,22 +25,27 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: Column(
-                children: [
+                child: Column(children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GradientLetter('WORD'),
-                      GradientText('Game', 31.6),
+                      GradientLetter('W'),
+                      GradientLetter('O'),
+                      GradientLetter('R'),
+                      GradientLetter('D'),
                     ],
                   ),
-                ],
-              )),
-              Expanded(
-                  child: GradientText(
-                'READY',
-                25.0,
-              ))
+                  GradientText('Game', 31.6),
+                  Image.asset(
+                    'assets/iCodeGuy.png',
+                  ),
+                  Expanded(
+                      child: GradientText(
+                    'READY',
+                    25.0,
+                  )),
+                ]),
+              ),
             ],
           )),
       floatingActionButton: Container(
