@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wordfind_app/task_page.dart';
 import 'package:wordfind_app/gradient_text.dart';
 import 'package:wordfind_app/input_field.dart';
-import 'dart:ui';
 import 'models/user_model.dart';
+
+User newUser = User("Guest", 0);
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -12,24 +13,17 @@ class StartPage extends StatefulWidget {
   State<StartPage> createState() => _StartPageState();
 }
 
-User newUser = User("Guest", 0);
-
 class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
-    void _createUser(String userName) {
-      setState(() {
-        newUser.userName = userName;
-      });
-    }
-
     return Scaffold(
-      backgroundColor: Color(0xFFFBF5F2),
+      backgroundColor: const Color(0xFFFBF5F2),
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/arrow_back.png'),
           onPressed: () {
             Navigator.of(context).pop();
+            newUser = User('Guest', 0);
           },
         ),
         backgroundColor: Colors.transparent,
@@ -61,9 +55,7 @@ class _StartPageState extends State<StartPage> {
                 padding: EdgeInsets.only(top: 50),
               ),
               InputField(
-                onSubmitted: (String value) {
-                  _createUser(value);
-                },
+                onSubmitted: _createUser,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 20),
@@ -73,18 +65,21 @@ class _StartPageState extends State<StartPage> {
         ),
       ),
       floatingActionButton: StartButton(
-        text: 'Start',
-        newUser: newUser,
+        newUser,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  void _createUser(String userName) {
+    setState(() {
+      newUser.userName = userName;
+    });
+  }
 }
 
 class StartButton extends StatelessWidget {
-  User newUser;
-  final String text;
-  StartButton({super.key, required this.newUser, required this.text});
+  StartButton(User newUser, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +89,7 @@ class StartButton extends StatelessWidget {
             width: 310,
             height: 60,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
@@ -112,8 +107,8 @@ class StartButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
-              child: Text(
-                text,
+              child: const Text(
+                'START',
                 style: TextStyle(
                   fontFamily: 'Nunito',
                   fontSize: 24,

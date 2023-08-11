@@ -23,9 +23,9 @@ class _TaskPageState extends State<TaskPage> {
 
   @override
   void initState() {
-    super.initState();
     listQuestions = questions;
     user = widget.user;
+    super.initState();
   }
 
   @override
@@ -74,7 +74,7 @@ class _TaskPageState extends State<TaskPage> {
               ),
               Container(
                 width: double.maxFinite,
-                padding: EdgeInsets.only(),
+                padding: EdgeInsets.only(bottom: 10),
                 color: Colors.white,
                 child: Center(
                   child: Container(

@@ -1,10 +1,10 @@
-class CharModels{
+class CharModel {
   String? currentValue;
   int? currentIndex;
   String? correctValue;
   bool hintShow;
 
-  CharModels({
+  CharModel({
     this.hintShow = false,
     this.correctValue,
     this.currentIndex,
@@ -12,8 +12,12 @@ class CharModels{
   });
 
   getCurrentValue() {
-    correctValue != null ? currentValue : null;
-    hintShow ? correctValue : null;
+    if (correctValue != null) {
+      return currentValue;
+    }
+    else if (hintShow) {
+      return correctValue;
+    }
   }
 
   void clearValue() {
