@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:wordfind_app/task_widget.dart';
+import 'models/task_model.dart';
+import 'models/user_model.dart';
+import 'package:wordfind_app/data/question.dart';
 
-class TaskPage extends StatelessWidget {
-  const TaskPage({super.key});
+class TaskPage extends StatefulWidget {
+  final User user;
+
+  const TaskPage(
+    this.user, {
+    super.key,
+  });
+
+  @override
+  State<TaskPage> createState() => _TaskPageState();
+}
+
+class _TaskPageState extends State<TaskPage> {
+  late List<TaskModel> listQuestions;
+  GlobalKey<TaskWidgetState> globalKey = GlobalKey();
+  late User user;
+
+  @override
+  void initState() {
+    super.initState();
+    listQuestions = questions;
+    user = widget.user;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +35,17 @@ class TaskPage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset(
-            'assets/images/arrow_back.png',
+            'assets/arrow_back.png',
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Your Name',
+          user.userName,
           style: TextStyle(
             fontSize: 24,
             color: Color(0xFFE86B02),
@@ -30,14 +57,20 @@ class TaskPage extends StatelessWidget {
           decoration: BoxDecoration(
               image: DecorationImage(
             image: AssetImage(
-              'back2.png',
+              'assets/back2.png',
             ),
             fit: BoxFit.cover,
           )),
           child: Column(
             children: [
               Expanded(
-                child: Container(),
+                child: LayoutBuilder(builder: (context, constrains) {
+                  return TaskWidget(
+                    constrains.biggest,
+                    listQuestions.map((question) => question.clone()).toList(),
+                    key: globalKey,
+                  );
+                }),
               ),
               Container(
                 width: double.maxFinite,
@@ -55,7 +88,13 @@ class TaskPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        globalKey.currentState?.generatePuzzle(
+                          loop: listQuestions
+                              .map((question) => question.clone())
+                              .toList(),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         elevation: 0,
@@ -82,5 +121,3 @@ class TaskPage extends StatelessWidget {
     );
   }
 }
-
-

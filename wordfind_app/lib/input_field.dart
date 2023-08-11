@@ -1,6 +1,3 @@
-import 'dart:html';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -15,19 +12,15 @@ class _InputFieldState extends State<InputField> {
   late TextEditingController _textEditingController;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _textEditingController = TextEditingController();
   }
 
-
   @override
   void dispose() {
-    // TODO: implement dispose
     _textEditingController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {

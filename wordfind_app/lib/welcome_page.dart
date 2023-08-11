@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:wordfind_app/Gradient_letter.dart';
+import 'package:wordfind_app/gradient_letter.dart';
 import 'package:wordfind_app/gradient_text.dart';
+import 'package:wordfind_app/start_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -14,7 +16,7 @@ class WelcomePage extends StatelessWidget {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
-            'assets/images/back1.png',
+            'assets/back1.png',
           ))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +62,9 @@ class WelcomePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
           ),
           child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push( context, MaterialPageRoute(builder: (context) => StartPage()));
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   elevation: 0,
