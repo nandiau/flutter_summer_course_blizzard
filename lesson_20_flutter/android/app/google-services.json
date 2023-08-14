@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702256047485",
+    "project_id": "lesson-day-20-nandia",
+    "storage_bucket": "lesson-day-20-nandia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702256047485:android:b6e4e810189f46d3441814",
+        "android_client_info": {
+          "package_name": "com.example.lesson_20_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702256047485-en2p1qdpr57t10vlaoe1ompiqi7ulfs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpwek-wKveMmGkqghvdyjqgHx878DgBuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702256047485-en2p1qdpr57t10vlaoe1ompiqi7ulfs4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
