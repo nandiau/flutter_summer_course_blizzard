@@ -4,19 +4,20 @@ class TextFieldInput extends StatelessWidget {
   final String hintText;
   final bool isPassword;
   final TextEditingController textEditingController;
+  final TextInputType textInputType;
 
   const TextFieldInput(
       {super.key,
       required this.hintText,
       required this.isPassword,
-      required this.textEditingController});
+      required this.textEditingController, required this.textInputType});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: this.textEditingController,
       decoration: InputDecoration(
-        hintText: 'this.hintText',
+        hintText: this.hintText,
         border:
             OutlineInputBorder(borderSide: Divider.createBorderSide(context)),
         focusedBorder:
@@ -27,7 +28,7 @@ class TextFieldInput extends StatelessWidget {
         filled: true,
         contentPadding: EdgeInsets.all(8),
       ),
-      keyboardType: TextInputType.text,
+      keyboardType: this.textInputType,
       obscureText: this.isPassword,
     );
   }
