@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "957674109002",
+    "project_id": "icodegram-nandia",
+    "storage_bucket": "icodegram-nandia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957674109002:android:7f2662c1a754dce6ba8eb3",
+        "android_client_info": {
+          "package_name": "com.example.icodegram_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957674109002-e6dg7h9btaeecns0kh6b9vppb4d8fnmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCSzArz8bW7dFBxkKvCN5xWYx6nhgBQrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957674109002-e6dg7h9btaeecns0kh6b9vppb4d8fnmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
