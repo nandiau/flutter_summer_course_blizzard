@@ -1,13 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
 import 'package:lesson_20_flutter/resources/auth_method.dart';
+import 'package:lesson_20_flutter/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
-
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -21,23 +22,27 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     _passwordController.dispose();
   }
-  @override
-  void setState(VoidCallback fn) {
- _isLoading = true;
- Navigator.push(context, route)
-  }
-}
 
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String result = await AuthMethods().loginUser(
+        email: _emailController.text, password: _passwordController.text);
+    if (result == 'success') {
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
-void loginUser() async {
-  String result;
-  await AuthMethods().loginUser;
-  _emailController.text;
-  _passwordController.text;
- if{result = 'success';
-   print('Logged in');} else {
-   print('Not logged in');
-
+      print('Logged in');
+    } else {
+      print('Not logged in');
+    }
+    // if{result = 'success';
+    //   print('Logged in');} else {
+    //   print('Not logged in');
   }
 
   @override
@@ -70,29 +75,25 @@ void loginUser() async {
               ),
               TextFieldInput(
                   hintText: 'Enter your password',
-                  isPassword: false,
+                  isPassword: true,
                   textEditingController: _passwordController,
                   textInputType: TextInputType.text),
               SizedBox(
                 height: 64,
               ),
               InkWell(
-                onTap: loginUser,
-                child: Container(
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 12),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
-                    ),
-                    color: Colors.blue,
-                  ),
-                  child: Center(
-                    child: Text('Нэвтрэх'),
-                  ),
-                ),
-              ),
+                  onTap: () {
+                    loginUser();
+                  },
+                  child: _isLoading
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        )
+                      : Center(
+                          child: Text('Нэвтрэх'),
+                        )),
               SizedBox(
                 height: 12,
               ),

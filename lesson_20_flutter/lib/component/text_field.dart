@@ -10,14 +10,15 @@ class TextFieldInput extends StatelessWidget {
       {super.key,
       required this.hintText,
       required this.isPassword,
-      required this.textEditingController, required this.textInputType});
+      required this.textEditingController,
+      required this.textInputType});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: this.textEditingController,
+      controller: textEditingController,
       decoration: InputDecoration(
-        hintText: this.hintText,
+        hintText: "$hintText",
         border:
             OutlineInputBorder(borderSide: Divider.createBorderSide(context)),
         focusedBorder:
@@ -28,8 +29,8 @@ class TextFieldInput extends StatelessWidget {
         filled: true,
         contentPadding: EdgeInsets.all(8),
       ),
-      keyboardType: this.textInputType,
-      obscureText: this.isPassword,
+      keyboardType: textInputType,
+      obscureText: isPassword,
     );
   }
 }

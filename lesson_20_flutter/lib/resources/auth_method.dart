@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
+
   Future<String> loginUser({
     required String email,
     required String password,
@@ -11,14 +12,16 @@ class AuthMethods {
     String result = 'Some error occured';
     try {
       if (email.isNotEmpty || password.isNotEmpty) {
-        UserCredential credential = await _auth.signInWithEmailAndPassword(
+        await _auth.signInWithEmailAndPassword(
             email: email, password: password);
+        result = 'success';
+      } else {
+        result = 'Please enter all the fields';
       }
     } catch (error) {
       result = error.toString();
     }
-    result = 'success';
-    result = 'Please enter all the fields';
+
     return result;
   }
 
