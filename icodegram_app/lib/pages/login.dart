@@ -60,12 +60,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              Text('Icodegram'),
+              Text(
+                'Icodegram',
+                style: TextStyle(
+                    fontSize: 35.5333366394043, fontWeight: FontWeight.w400),
+              ),
               SizedBox(
                 height: 64,
               ),
               TextFieldInput(
-                  hintText: 'Enter your email',
+                  hintText: 'Нэвтрэх нэр',
                   isPassword: false,
                   textEditingController: _emailController,
                   textInputType: TextInputType.emailAddress),
@@ -73,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                  hintText: 'Enter your password',
+                  hintText: 'Нууц үг',
                   isPassword: true,
                   textEditingController: _passwordController,
                   textInputType: TextInputType.text),
@@ -88,11 +92,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ? Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
-                          ),
-                        )
-                      : Center(
-                          child: Text('Нэвтрэх'),
-                        )),
+                          ),):),
+              Row(
+
+                    children: [Text('Нэвтрэх', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),)],
+                  ),
+
+
+              Text('Эсвэл',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
+              Text('Шинэ хэрэглэгч үү? ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),),
               SizedBox(
                 height: 12,
               ),

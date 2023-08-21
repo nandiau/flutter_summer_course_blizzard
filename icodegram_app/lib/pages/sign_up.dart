@@ -40,7 +40,7 @@ class _SignUpState extends State<SignUp> {
               ),
               Text(
                 'Icodegram',
-                style: TextStyle(fontSize: 34),
+                style: TextStyle(fontSize: 34, fontWeight: FontWeight.w400),
               ),
               SizedBox(
                 height: 64,
