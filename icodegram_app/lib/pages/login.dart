@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../component/text_field.dart';
 import '../resources/auth_method.dart';
 import 'home_screen.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -92,15 +91,38 @@ class _LoginScreenState extends State<LoginScreen> {
                       ? Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
-                          ),):),
+                          ),
+                        )
+                      : Text(
+                          'Нэвтрэх',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              backgroundColor: Colors.orange),
+                        )),
+              Text(
+                'Эсвэл',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              ),
               Row(
-
-                    children: [Text('Нэвтрэх', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),)],
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Шинэ хэрэглэгч үү?',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-
-
-              Text('Эсвэл',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
-              Text('Шинэ хэрэглэгч үү? ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),),
+                  Text(
+                    'Бүртгүүлэх ',
+                    style: TextStyle(
+                      fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.orange),
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 12,
               ),
