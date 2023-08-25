@@ -1,6 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
 import 'package:lesson_20_flutter/resources/auth_method.dart';
+
+import '../utils/utils.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -14,6 +18,9 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
+  Uint8List? _image;
+
+
   @override
   void dispose() {
     super.dispose();
@@ -23,8 +30,15 @@ class _SignUpState extends State<SignUp> {
     _rePasswordController.dispose();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
+    Stack(children: [_image!=null? CircleAvatar(
+    radius: 64, backgroundImage: MemoryImage(_image!),)
+      CircleAvatar(radius: 64,backgroundImage: NetworkImage("https://toppng.com/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png"),), Positioned( bottom: 10, left: 80, child: IconButton(icon: Icon(Icons.add_a_photo),onPressed: selectImage()async{Uint8List image = await pickImage(ImageSourse.gallery, );},),)])setState(() {
+        _image=image;
+      });;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -86,7 +100,7 @@ class _SignUpState extends State<SignUp> {
               ),
               InkWell(
                 onTap: () {
-                  AuthMethods().signUpUser(
+                  AuthMethods()_signUpUser(
                       email: _emailController.text,
                       password: _passwordController.text,
                       username: _userController.text);
@@ -109,7 +123,7 @@ class _SignUpState extends State<SignUp> {
               Flexible(
                 child: Container(),
                 flex: 2,
-              )
+              ),
             ],
           ),
         ),
@@ -117,3 +131,5 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+
+
